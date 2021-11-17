@@ -62,8 +62,7 @@ class User extends CI_Controller {
 			'nama_depan' => $tangkapNamaDepan,
 			'nama_belakang' => $tangkapNamaBelakang,
 			'email_user' => $tangkapEmailUser,
-			'jenis_kelamin' => $tangkapJenisKelamin,
-			'teman' => $teman
+			'jenis_kelamin' => $tangkapJenisKelamin
 		);
 
 		$this->M_Dosen->insert_record('user',$data);
