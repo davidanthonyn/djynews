@@ -1,3 +1,7 @@
+<?php
+
+header("Content-type: text/css");
+
 .jumbotron {
     background-color: #153449;
 }
@@ -25,3 +29,5 @@ img {
 .container-fluid {
     width: 90%;
 }
+
+?>
