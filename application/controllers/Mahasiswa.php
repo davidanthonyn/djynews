@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mahasiswa extends CI_Controller {
+class Mahasiswa extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +19,7 @@ class Mahasiswa extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	
+
 	/*public function index()
 	{
 		$this->load->view('welcome_message');
@@ -30,28 +31,32 @@ class Mahasiswa extends CI_Controller {
 	}
 	*/
 
-	function __construct() {
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->model(array('M_Mahasiswa'));
 	}
 
-	function index() {
+	function index()
+	{
 		$data['mahasiswa'] = $this->M_Mahasiswa->tampilkan_record()->result();
 
 		$this->load->view('v_Mahasiswa.php', $data);
 	}
 
-	function tambah_data() {
+	function tambah_data()
+	{
 		$this->load->view('v_input_mahasiswa.php');
 	}
 
-	function proses_tambah_data() {
+	function proses_tambah_data()
+	{
 
 		$tangkapNpm = $this->input->post('npm');
 		$tangkapNamaMahasiswa = $this->input->post('nama_mahasiswa');
 		$tangkapEmailMahasiswa = $this->input->post('email_mahasiswa');
 		$tangkapKodeProdi = $this->input->post('kode_prodi');
-		
+
 
 		$data = array(
 			'npm' => $tangkapNpm,
@@ -60,19 +65,20 @@ class Mahasiswa extends CI_Controller {
 			'kode_prodi' => $tangkapKodeProdi
 		);
 
-		$this->M_Mahasiswa->insert_record('mahasiswa',$data);
+		$this->M_Mahasiswa->insert_record('mahasiswa', $data);
 
 		redirect('Mahasiswa');
-
 	}
 
-	function edit_data($npm) {
+	function edit_data($npm)
+	{
 		$where = array('npm' => $npm);
 		$data['mahasiswaEdit'] = $this->M_Mahasiswa->edit_record('mahasiswa', $where)->result();
-		$this->load->view('v_edit_mahasiswa',$data);
+		$this->load->view('v_edit_mahasiswa', $data);
 	}
 
-	function proses_edit_data() {
+	function proses_edit_data()
+	{
 		$tangkapNpm = $this->input->post('npm');
 		$tangkapNamaMahasiswa = $this->input->post('nama_mahasiswa');
 		$tangkapEmailMahasiswa = $this->input->post('email_mahasiswa');
@@ -88,16 +94,16 @@ class Mahasiswa extends CI_Controller {
 			'npm' => $tangkapNpm
 		);
 
-		$this->M_Mahasiswa->update_record($where,$data,'mahasiswa');
+		$this->M_Mahasiswa->update_record($where, $data, 'mahasiswa');
 		redirect('Mahasiswa');
 	}
 
 	//Function menghapus data
 
-	function delete_data($npm) {
+	function delete_data($npm)
+	{
 		$where = array('npm' => $npm);
-		$this->M_Mahasiswa->delete_record($where,'mahasiswa');
+		$this->M_Mahasiswa->delete_record($where, 'mahasiswa');
 		redirect('Mahasiswa');
 	}
-
 }

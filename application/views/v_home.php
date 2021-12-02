@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>DJY News</title>
+
+<head>
+    <meta charset="utf-8">
+    <title>CRUD DATABASE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="<?php echo base_url() ?>/public/css/bootstrap.css"></script>
 </head>
+
+<?php include 'templates/header.php' ?>
+
 <body>
-    <h1>MENU DATA OPCS
-    <h1><a href="<?php echo base_url(). 'Matakuliah/' ?>">a. Data Matkul SISTECH </a> </h1>
-    <h1><a href="<?php echo base_url(). 'Prodi/' ?>">b. Data Prodi SISTECH </a> </h1>
-    <h1><a href="<?php echo base_url(). 'Mahasiswa/' ?>">c. Data Mahasiswa SISTECH </a> </h1>
-    <h1><a href="<?php echo base_url(). 'Dosen/' ?>">d. Data Dosen SISTECH </a> </h1>
-    <h1><a href="<?php echo base_url(). 'Enroll/' ?>">e. Data Enroll Mahasiswa SISTECH </a> </h1>
-</h1>
-    <h1><a href="<?php echo base_url(). 'jadwal/' ?>">f. Data Jadwal Dosen SISTECH </a> </h1>
-    <h1><a href="<?php echo base_url(). 'dompdf/' ?>">g. DOMPDF </a> </h1>
-    <h1><a href="<?php echo base_url(). 'Dosen/logout_session_dosen' ?>">Logout </a> </h1>
 
     <table>
-            <tr>
-                <td>Nama Depan</td>
-                <td>: <?php echo $this->session->userdata('nama_depan'); ?></td>
-            </tr>
-
         <tr>
-            <td>username</td>
-            <td>: <?php echo $this->session->userdata('username'); ?></td>
+            <td>NIDN</td>
+            <td>: <?php echo $this->session->userdata('password'); ?></td>
         </tr>
 
-             
-</table>
+        <tr>
+            <td>Email Dosen</td>
+            <td>: <?php echo $this->session->userdata('username'); ?></td>
+        </tr>
+    </table>
 
 </body>
+
 </html>

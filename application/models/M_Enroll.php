@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Enroll extends CI_Model {
+class M_Enroll extends CI_Model
+{
 
 	/**
 	 * Index Page for this controller.
@@ -20,28 +21,32 @@ class M_Enroll extends CI_Model {
 	 */
 	public function tampilkan_record()
 	{
-		
+
 		$query = $this->db->query('SELECT * FROM enroll');
 		return $query;
 	}
 
-	function insert_record($table, $data) {
+	function insert_record($table, $data)
+	{
+
 		$this->db->insert($table, $data);
 	}
 
 	//Mengambil data dosen berdasarkan kriteria (where)
-	function edit_record($table, $where) {
+	function edit_record($table, $where)
+	{
 		return $this->db->get_where($table, $where);
 	}
 
-	function update_record($where,$data,$table) {
+	function update_record($where, $data, $table)
+	{
 		$this->db->where($where);
-		$this->db->update($table,$data);
+		$this->db->update($table, $data);
 	}
 
-	function delete_record($where,$table) {
+	function delete_record($where, $table)
+	{
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
-	
 }
