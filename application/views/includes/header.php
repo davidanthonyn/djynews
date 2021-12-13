@@ -15,6 +15,9 @@
          <li class="nav-item">
            <a class="nav-link" href="<?php echo base_url() . 'Contact' ?>">Contact us</a>
          </li>
+         <li class="nav-item">
+           <a class="nav-link" href="<?php echo base_url() . 'Account' ?>">Login</a>
+         </li>
 
 
        </ul>
