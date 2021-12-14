@@ -40,7 +40,133 @@ class Account extends CI_Controller
 
     function index()
     {
-        $data['user'] = $this->M_Account->tampilkan_record()->result();
-        $this->load->view('v_login.php', $data);
+        //$data['user'] = $this->M_Account->tampilkan_record()->result();
+        //$this->load->view('v_login.php', $data);
+        $this->load->view('v_login.php');
+    }
+
+
+
+    function proses_session_login()
+    {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "djynews";
+        $errors = array();
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+
+        if ($this->input->post('login') == true) {
+            $tangkapNamaUserdavid = $this->input->post('nama_user_david');
+            $tangkapPassworddavid = $this->input->post('password_david');
+
+            //$query = "SELECT * FROM user WHERE user_name='$tangkapNamaUserdavid' AND password='$tangkapPassworddavid'";
+            //$sql = mysqli_query($con, "SELECT AdminUserName,AdminEmailId,AdminPassword FROM tbladmin WHERE (AdminUserName='$uname' || AdminEmailId='$uname')");
+            $query = "SELECT user_name, password, email_user FROM user WHERE (user_name='$tangkapNamaUserdavid' || email_user='$tangkapNamaUserdavid')";
+            $result = mysqli_query($conn, $query);
+            $num = mysqli_fetch_array($result);
+
+            if ($num > 0) {
+                $hashpassword = $num['password']; // Hashed password fething from database
+                //verifying Password
+                if (password_verify($password, $hashpassword)) {
+                    $_SESSION['login'] = $_POST['id_user'];
+
+
+                    redirect('Home');
+                } else {
+                    echo "<script>alert('Wrong Password');</script>";
+                }
+            }
+            //if username or email not found in database
+            else {
+                echo "<script>alert('User not registered with us');</script>";
+                redirect('Account');
+            }
+        }
+    }
+
+    function session_register()
+    {
+        $this->load->view('v_register.php');
+    }
+
+    function proses_session_register()
+    {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "djynews";
+        $errors = array();
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+
+        if ($this->input->post('login') == true) {
+            $tangkapNamaUserdavid = $this->input->post('nama_user_david');
+            $tangkapPassworddavid = $this->input->post('password_david');
+            $tangkapNamaDepan = $this->input->post('nama_depan');
+            $tangkapNamaBelakang = $this->input->post('nama_belakang');
+            $tangkapEmail = $this->input->post('email_user');
+            $tangkapJenisKelamin = $this->input->post('jenis_kelamin');
+
+            $query = "SELECT username FROM user WHERE username='$username'";
+            $result = mysqli_query($conn, $query);
+
+            $query = "SELECT * FROM user WHERE user_name='$tangkapNamaUserdavid' AND password='$tangkapPassworddavid'";
+
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) == 1) {
+?>
+                <script>
+                    alert('Username already exists!');
+                </script>
+                <?php
+            } else {
+                $passhash = password_hash($tangkapPassworddavid, PASSWORD_DEFAULT);
+                $insert = mysqli_query($conn, "INSERT INTO `user`(`id_user`, `user_name`, `password`, `userlevel`, `nama_depan`, `nama_belakang`, `email_user`, `jenis_kelamin`, `id_subscription`, 
+					`Created_at`, `Updated_at`) 
+					VALUES ('NULL',$tangkapNamaUserdavid','$passhash','reader','$tangkapNamaDepan','$tangkapNamaBelakang','$tangkapEmail',' $tangkapJenisKelamin',null,now(),now())");
+
+
+                if ($insert) {
+                ?>
+                    <script>
+                        alert('Registration successful, now return to login to input your username and password');
+                        window.location.href = '"<?php echo base_url() . 'Account/session_register' ?>';
+                    </script>
+
+            <?php
+
+                } else {
+                    echo mysqli_error();
+                }
+
+                $conn->close();
+            }
+        } else {
+            ?>
+            <script>
+                alert('Form tidak boleh kosong');
+                window.location.href = '"<?php echo base_url() . 'Account/session_register' ?>';
+            </script>
+
+<?php
+        }
     }
 }
