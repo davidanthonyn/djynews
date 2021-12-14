@@ -20,6 +20,9 @@ include('includes/config.php');
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
 
+  <link rel="shortcut icon" type="images" href="images/logo.png" />
+
+
 </head>
 
 <body>
