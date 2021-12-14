@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Account extends CI_Model
+class M_Categories extends CI_Model
 {
 
 	/**
@@ -19,16 +19,16 @@ class M_Account extends CI_Model
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function tampilkan_record()
-	{
 
-		$query = $this->db->query('SELECT * FROM user');
+	/*public function tampilkan_record()
+	{
+		
+		$query = $this->db->query('SELECT * FROM dosen');
 		return $query;
-	}
+	}*/
 
 	function insert_record($table, $data)
 	{
-
 		$this->db->insert($table, $data);
 	}
 
@@ -48,5 +48,11 @@ class M_Account extends CI_Model
 	{
 		$this->db->where($where);
 		$this->db->delete($table);
+	}
+
+	function tampilkan_record()
+	{
+		$query = $this->db->query('select id,CategoryName from tblcategory');
+		return $query;
 	}
 }

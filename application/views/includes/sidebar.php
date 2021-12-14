@@ -75,12 +75,12 @@ $temperature_current_weather_icon = $weather_data['weather'][0]['icon'];
     <div class="row">
       <div class="col-lg-6">
         <ul class="list-unstyled mb-0">
-          <?php $query = mysqli_query($con, "select id,CategoryName from tblcategory");
-          while ($row = mysqli_fetch_array($query)) {
-          ?>
+
+          <?php
+          foreach ($data as $row) { ?>
 
             <li>
-              <a href="category.php?catid=<?php echo htmlentities($row['id']) ?>"><?php echo htmlentities($row['CategoryName']); ?></a>
+              <a href=" <?php echo base_url() . 'Categories/select_data/' . $row->CategoryName; ?> <a href=" category.php?catid=<?php echo htmlentities($row['id']) ?>"><?php echo htmlentities($row['CategoryName']); ?></a>
             </li>
           <?php } ?>
         </ul>

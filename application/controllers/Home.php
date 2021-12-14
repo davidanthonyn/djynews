@@ -14,9 +14,11 @@ class Home extends CI_Controller
         $this->load->view('index.php');
     }
 
-    function contactus()
+    function dataCategory()
     {
-        $this->load->view('contact-us.php');
+        $data['tblcategory'] = $this->M_Categories->tampilkan_record()->result();
+
+        $this->load->view('includes/sidebar.php', $data);
     }
 
 
