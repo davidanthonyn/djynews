@@ -29,55 +29,41 @@ include('includes/config.php');
   <!-- Page Content -->
   <div class="container">
 
-
-
-
-
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.php">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Contact</li>
+    </ol>
+    <br><br><br>
     <?php
     $pagetype = 'contactus';
-    $query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+    //$query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+    $query = mysqli_query($con, "select name_contact, address_contact, phone_contact, email_contact
+     from contact_person");
     while ($row = mysqli_fetch_array($query)) {
 
     ?>
-      <h1 class="mt-4 mb-3"><?php echo htmlentities($row['PageTitle']) ?>
+      <h5 class="mt-4 mb-3">Nama: <?php echo htmlentities($row['name_contact']) ?>
+        <p class="mt-4 mb-3">Alamat: <?php echo htmlentities($row['address_contact']) ?>
+        <p class="mt-4 mb-3">Nomor HP: <?php echo htmlentities($row['phone_contact']) ?>
+        <p class="mt-4 mb-3">Email: <?php echo htmlentities($row['email_contact']) ?><br><br>
 
-      </h1>
+        </p>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="<?php echo base_url() . 'Home' ?>">Home</a>
-        </li>
-        <li class="breadcrumb-item active">Contact</li>
-      </ol>
 
-      <form>
-        <table>
-          <tr>
-            <td>Nama</td>
-            <td>: </td>
-            <td>
-              <select name="nidn" id="nidn">
 
-                <option value="0"> -- Pilih Kontak -- </option>
-                <?php foreach ($dosen as $listDosen) { ?>
-                  <option value="<?php echo $listDosen->nidn ?>"><?php echo $listDosen->nidn . " - " . $listDosen->nama_dosen ?></option>
-                <?php } ?>
-              </select>
-            </td>
-          </tr>
-      </form>
+        <!-- Intro Content -->
+        <div class="row">
 
-      <!-- Intro Content -->
-      <div class="row">
+          <div class="col-lg-12">
 
-        <div class="col-lg-12">
-
-          <p><?php echo $row['Description']; ?></p>
+            <p><?php //echo $row['Description']; 
+                ?></p>
+          </div>
         </div>
-      </div>
-
-      <!-- /.row -->
-    <?php } ?>
+        <!-- /.row -->
+      <?php } ?>
 
   </div>
   <!-- /.container -->

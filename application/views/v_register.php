@@ -305,9 +305,6 @@
       <input class='text' type="submit" name="register" value="REGISTER">
     </button>
 
-
-
-
   </form>
 
   <form autocomplete='off' class='form' method="POST" action="<?php echo base_url() . 'Account'; ?>">

@@ -40,6 +40,16 @@ class Account extends CI_Controller
 
     function index()
     {
+        if (!empty($_SESSION['account_username'])) {
+?>
+            <script>
+                alert('Anda sudah login');
+                window.location.href = 'Account';
+            </script>
+
+        <?php
+        }
+
         //$data['user'] = $this->M_Account->tampilkan_record()->result();
         //$this->load->view('v_login.php', $data);
         $this->load->view('v_login.php');
@@ -49,15 +59,7 @@ class Account extends CI_Controller
 
     function proses_session_login()
     {
-        if (!empty($_SESSION['account_username'])) {
-?>
-            <script>
-                alert('Anda sudah login');
-                window.location.href = '../home.php';
-            </script>
 
-        <?php
-        }
 
         $servername = "localhost";
         $username = "root";
@@ -188,7 +190,7 @@ class Account extends CI_Controller
             ?>
             <script>
                 alert('Form tidak boleh kosong');
-                window.location.href = '"<?php echo base_url() . 'Account/session_register' ?>';
+                window.location.href = 'Account/session_register';
             </script>
 
 <?php
