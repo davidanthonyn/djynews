@@ -139,16 +139,21 @@ class Account extends CI_Controller
         if ($this->input->post('register') == true) {
             //$tangkapNamaUserdavid = $this->input->post("nama_user_david");
             //$tangkapPassworddavid = $this->input->post("password_david");
-            $tangkapNamaDepan = $this->input->post("nama_depan");
-            $tangkapNamaBelakang = $this->input->post("nama_belakang");
-            $tangkapEmail = $this->input->post("email_user");
-            $tangkapJenisKelamin = $this->input->post("jenis_kelamin");
+            //$tangkapNamaDepan = $this->input->post("nama_depan");
+            //$tangkapNamaBelakang = $this->input->post("nama_belakang");
+            //$tangkapEmail = $this->input->post("email_user");
+            //$tangkapJenisKelamin = $this->input->post("jenis_kelamin");
 
 
             $tangkapNamaUserdavid = mysqli_real_escape_string($conn, $_POST['nama_user_david']);
             $tangkapPassworddavid =  mysqli_real_escape_string($conn, $_POST['password_david']);
+            $tangkapNamaDepan = mysqli_real_escape_string($conn, $_POST['nama_depan']);
+            $tangkapNamaBelakang = mysqli_real_escape_string($conn, $_POST['nama_belakang']);
+            $tangkapEmail = mysqli_real_escape_string($conn, $_POST['email_user']);
+            $tangkapJenisKelamin = mysqli_real_escape_string($conn, $_POST['jenis_kelamin']);
 
-            $query = "SELECT user_name FROM user WHERE username='$tangkapNamaUserdavid'";
+
+            $query = "SELECT user_name FROM user WHERE user_name='$tangkapNamaUserdavid'";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) == 1) {
             ?>
