@@ -51,7 +51,7 @@ include('includes/config.php');
       <h5 class="mt-4 mb-3">Nama: <?php echo htmlentities($row['name_contact']) ?>
         <p class="mt-4 mb-3">Alamat: <?php echo htmlentities($row['address_contact']) ?>
         <p class="mt-4 mb-3">Nomor HP: <?php echo htmlentities($row['phone_contact']) ?>
-        <p class="mt-4 mb-3">Email: <?php echo htmlentities($row['email_contact']) ?><br><br>
+        <p class="mt-4 mb-3">Email: <?php echo htmlentities($row['email_contact']) ?>
 
 
           <!-- Intro Content -->
