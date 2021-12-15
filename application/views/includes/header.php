@@ -18,12 +18,12 @@
          <li class="nav-item">
            <?php
             //IF data user kosong
-            if (!empty($_SESSION['account_username'])) {
+            if (empty($_SESSION['account_username'])) {
             ?>
              <a class="nav-link" href="<?php echo base_url() . 'Account' ?>">Login</a>
            <?php
               //IF data user tersedia
-            } else if (empty($_SESSION['account_username'])) {
+            } else if (!empty($_SESSION['account_username'])) {
             ?>
              <!---
              <a><strong>$_SESSION[account_username]</strong></a>
@@ -69,6 +69,7 @@
          </ul>
        <li>
          <?php
+          /*
           if (empty($_SESSION['account_username'])) {
           } else if (!empty($_SESSION['account_username'])) {
             if (!empty($_SESSION['account_userlevel']) && $_SESSION['account_userlevel'] == 'admin') {
@@ -82,7 +83,7 @@
               echo "<li><a class='dropdown' href='Bagian Sanctus/sigadgetadmins.php'>Admins</a></li>";
               echo "<li><a class='dropdown' href='sigadgetregisterimage.php'>Pictures</a></li>";
             }
-          }
+          }*/
           ?>
          </ul>
        </li>

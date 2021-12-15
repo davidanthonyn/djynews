@@ -23,20 +23,20 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="https://unsightly-flame.000webhostapp.com/Home"><img src="images/logo.png" height="50"></a>
+      <a class="navbar-brand" href="<?php echo base_url() . 'Home' ?>"><img src="images/logo.png" height="50"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="https://unsightly-flame.000webhostapp.com/About">About</a>
+            <a class="nav-link" href="<?php echo base_url() . 'About' ?>">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://unsightly-flame.000webhostapp.com/Contact">Contact us</a>
+            <a class="nav-link" href="<?php echo base_url() . 'Contact' ?>">Contact us</a>
           </li>
 
 
