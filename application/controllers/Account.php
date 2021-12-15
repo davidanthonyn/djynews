@@ -49,6 +49,16 @@ class Account extends CI_Controller
 
     function proses_session_login()
     {
+        if (!empty($_SESSION['account_username'])) {
+?>
+            <script>
+                alert('Anda sudah login');
+                window.location.href = '../home.php';
+            </script>
+
+        <?php
+        }
+
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -101,6 +111,16 @@ class Account extends CI_Controller
 
     function proses_session_register()
     {
+        if (!empty($_SESSION['account_username'])) {
+        ?>
+            <script>
+                alert('Anda sudah login');
+                window.location.href = '../home.php';
+            </script>
+
+            <?php
+        }
+
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -116,25 +136,25 @@ class Account extends CI_Controller
         }
 
 
-        if ($this->input->post('login') == true) {
-            $tangkapNamaUserdavid = $this->input->post('nama_user_david');
-            $tangkapPassworddavid = $this->input->post('password_david');
-            $tangkapNamaDepan = $this->input->post('nama_depan');
-            $tangkapNamaBelakang = $this->input->post('nama_belakang');
-            $tangkapEmail = $this->input->post('email_user');
-            $tangkapJenisKelamin = $this->input->post('jenis_kelamin');
+        if ($this->input->post('register') == true) {
+            //$tangkapNamaUserdavid = $this->input->post("nama_user_david");
+            //$tangkapPassworddavid = $this->input->post("password_david");
+            $tangkapNamaDepan = $this->input->post("nama_depan");
+            $tangkapNamaBelakang = $this->input->post("nama_belakang");
+            $tangkapEmail = $this->input->post("email_user");
+            $tangkapJenisKelamin = $this->input->post("jenis_kelamin");
 
-            $query = "SELECT username FROM user WHERE username='$username'";
+
+            $tangkapNamaUserdavid = mysqli_real_escape_string($conn, $_POST['nama_user_david']);
+            $tangkapPassworddavid =  mysqli_real_escape_string($conn, $_POST['password_david']);
+
+            $query = "SELECT user_name FROM user WHERE username='$tangkapNamaUserdavid'";
             $result = mysqli_query($conn, $query);
-
-            $query = "SELECT * FROM user WHERE user_name='$tangkapNamaUserdavid' AND password='$tangkapPassworddavid'";
-
-            $result = mysqli_query($conn, $query);
-
             if (mysqli_num_rows($result) == 1) {
-?>
+            ?>
                 <script>
                     alert('Username already exists!');
+                    window.location.href = '"<?php echo base_url() . 'Account' ?>';
                 </script>
                 <?php
             } else {
@@ -148,7 +168,7 @@ class Account extends CI_Controller
                 ?>
                     <script>
                         alert('Registration successful, now return to login to input your username and password');
-                        window.location.href = '"<?php echo base_url() . 'Account/session_register' ?>';
+                        window.location.href = '"<?php echo base_url() . 'Account' ?>';
                     </script>
 
             <?php

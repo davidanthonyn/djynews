@@ -23,7 +23,6 @@
 
 
   <meta charset="UTF-8">
-  <title>REGISTER</title>
   <style>
     *,
     ::after,
@@ -216,7 +215,7 @@
   <form autocomplete='off' class='form' method="POST" action="<?php echo base_url() . 'Account/proses_session_register'; ?>">
     <div class='control'>
       <h1>
-        LOGIN DJY NEWS
+        LOGIN
       </h1>
     </div>
 
@@ -246,7 +245,8 @@
       </div>
     </div>
 
-    <button class='btn block-cube block-cube-hover' type='button'>
+    <div class='control block-cube block-input'>
+      <input name='nama_depan' placeholder='Nama Depan' type='text'>
       <div class='bg-top'>
         <div class='bg-inner'></div>
       </div>
@@ -256,8 +256,41 @@
       <div class='bg'>
         <div class='bg-inner'></div>
       </div>
-      <input class='text' type="submit" name="login" value="login">
-    </button>
+    </div>
+
+    <div class='control block-cube block-input'>
+      <input name='nama_belakang' placeholder='Nama Belakang' type='text'>
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+    </div>
+
+    <div class='control block-cube block-input'>
+      <input name='email_user' placeholder='Email' type='text'>
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+    </div>
+
+    <div class='control block-cube block-input'>
+      <label for="cars">Jenis Kelamin:</label>
+      <select id="jenis_kelamin" name="jenis_kelamin">
+        <option value="Laki-Laki" selected>Laki-Laki</option>
+        <option value="Perempuan">Perempuan</option>
+      </select>
+    </div>
 
     <button class='btn block-cube block-cube-hover' type='button'>
       <div class='bg-top'>
@@ -269,10 +302,30 @@
       <div class='bg'>
         <div class='bg-inner'></div>
       </div>
-      <input class='text' type="submit" name="register" value="register">
+      <input class='text' type="submit" name="register" value="REGISTER">
+    </button>
+
+
+
+
+  </form>
+
+  <form autocomplete='off' class='form' method="POST" action="<?php echo base_url() . 'Account'; ?>">
+    <button class='btn block-cube block-cube-hover' type='button'>
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+      <input class='text' type="submit" name="register" value="LOGIN">
     </button>
 
   </form>
+
   <!-- partial -->
 
   <!-- Footer -->

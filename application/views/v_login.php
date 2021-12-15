@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DJY News | Home Page</title>
+  <title>DJY News | Login Page</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,6 @@
 
 
   <meta charset="UTF-8">
-  <title>LOGIN PT DAVID</title>
   <style>
     *,
     ::after,
@@ -216,7 +215,7 @@
   <form autocomplete='off' class='form' method="POST" action="<?php echo base_url() . 'Account/proses_session_login'; ?>">
     <div class='control'>
       <h1>
-        LOGIN NEWSAPI
+        LOGIN
       </h1>
     </div>
 
@@ -259,14 +258,23 @@
       <input class='text' type="submit" name="login" value="login">
     </button>
 
-
-
-
   </form>
 
-  <input class='text' type="submit" name="register" value="register" href="<?php echo base_url() . 'Account/session_register'; ?>">
+  <form autocomplete='off' class='form' method="POST" action="<?php echo base_url() . 'Account/session_register'; ?>">
+    <button class='btn block-cube block-cube-hover' type='button'>
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+      <input class='text' type="submit" name="register" value="register">
+    </button>
 
-
+  </form>
 
   <!-- partial -->
 
