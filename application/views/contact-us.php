@@ -47,7 +47,7 @@ include('includes/config.php');
     while ($row = mysqli_fetch_array($query)) {
 
     ?>
-      <a><img src='images/<?php echo htmlentities($row['image']) ?>'></a>
+      <a><img src='images/<?php echo htmlentities($row['image']) ?>' height="200"></a>
       <h5 class="mt-4 mb-3">Nama: <?php echo htmlentities($row['name_contact']) ?>
         <p class="mt-4 mb-3">Alamat: <?php echo htmlentities($row['address_contact']) ?>
         <p class="mt-4 mb-3">Nomor HP: <?php echo htmlentities($row['phone_contact']) ?>
