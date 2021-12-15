@@ -35,6 +35,7 @@ include('includes/config.php');
     while ($row = mysqli_fetch_array($query)) {
 
     ?>
+      <a><img src='images/logo.png' height="100"></a>
       <h1 class="mt-4 mb-3"><?php echo htmlentities($row['PageTitle']) ?>
 
       </h1>
