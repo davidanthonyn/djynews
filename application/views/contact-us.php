@@ -1,4 +1,7 @@
 <?php
+
+use Dompdf\FrameDecorator\Image;
+
 include('includes/config.php');
 
 ?>
@@ -39,21 +42,19 @@ include('includes/config.php');
     <?php
     $pagetype = 'contactus';
     //$query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
-    $query = mysqli_query($con, "select name_contact, address_contact, phone_contact, email_contact
+    $query = mysqli_query($con, "select name_contact, address_contact, phone_contact, email_contact, image
      from contact_person");
     while ($row = mysqli_fetch_array($query)) {
 
     ?>
+      <a><img src='images/<?php echo htmlentities($row['image']) ?>'></a>
       <h5 class="mt-4 mb-3">Nama: <?php echo htmlentities($row['name_contact']) ?>
         <p class="mt-4 mb-3">Alamat: <?php echo htmlentities($row['address_contact']) ?>
         <p class="mt-4 mb-3">Nomor HP: <?php echo htmlentities($row['phone_contact']) ?>
         <p class="mt-4 mb-3">Email: <?php echo htmlentities($row['email_contact']) ?><br><br>
 
-        </p>
 
-
-
-        <!-- Intro Content -->
+          <!-- Intro Content -->
         <div class="row">
 
           <div class="col-lg-12">
