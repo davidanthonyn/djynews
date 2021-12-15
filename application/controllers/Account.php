@@ -44,7 +44,7 @@ class Account extends CI_Controller
 ?>
             <script>
                 alert('Anda sudah login');
-                window.location.href = 'Account';
+                window.location.href = 'Home';
             </script>
 
         <?php
