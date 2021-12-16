@@ -215,7 +215,7 @@
   <form autocomplete='off' class='form' method="POST" action="<?php echo base_url() . 'Account/proses_session_register'; ?>">
     <div class='control'>
       <h1>
-        LOGIN
+        REGISTER
       </h1>
     </div>
 
